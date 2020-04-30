@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>{{ item.title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
 {% load static %}
+{% block content %}
+{% spaceless %}
 <div>
 <ol class="breadcrumb">
 <li><a href="/">Головна</a></li>
 <li><a href="{% url 'articles-list' %}">Публікації</a></li>
-<li><a href="{{ item.category.get_absolute_url }}">{{ item.category|upper
-}}</a></li>
 <li>{{ item.title|upper }}</li>
 </ol>
 <div>
@@ -30,5 +24,5 @@
 </div>
 <div class='clearfix'></div>
 </div>
-</body>
-</html>
+{% endspaceless %}
+{% endblock %}
